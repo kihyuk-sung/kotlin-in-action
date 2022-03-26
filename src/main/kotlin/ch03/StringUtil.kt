@@ -2,6 +2,8 @@
 
 package ch03
 
+val UNIX_LINE_SEPARATOR = "\n"
+
 fun <T> joinToString(
     collection: Collection<T>,
     separator: String = ", ",
