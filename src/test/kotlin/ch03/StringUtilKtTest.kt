@@ -17,6 +17,22 @@ internal class StringUtilKtTest {
     }
 
     @Test
+    fun joinToStringWithDefault() {
+        val list = listOf(1, 2, 3)
+
+        assertThat(joinToString(list))
+            .isEqualTo("[1, 2, 3]")
+    }
+
+    @Test
+    fun joinToStringWithOverloads() {
+        val list = listOf(1, 2, 3)
+
+        assertThat(joinToStringOverloads(list))
+            .isEqualTo("[1, 2, 3]")
+    }
+
+    @Test
     fun joinToStringJava() {
         val list = listOf(1, 2, 3)
         assertThat(StringUtilJava.joinToString(list, separator, prefix, postfix))
