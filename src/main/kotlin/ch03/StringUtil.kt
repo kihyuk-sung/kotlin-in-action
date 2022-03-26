@@ -1,3 +1,5 @@
+@file:JvmName("StringFunctions")
+
 package ch03
 
 fun <T> joinToString(
