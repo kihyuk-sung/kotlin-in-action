@@ -8,7 +8,7 @@ internal class StringUtilKtTest {
     fun joinToString() {
         val list = listOf(1, 2, 3)
 
-        assertThat(joinToString(list, "; ", "(", ")"))
+        assertThat(joinToString(list, separator = "; ", prefix = "(", postfix = ")"))
             .isEqualTo("(1; 2; 3)")
     }
 }
