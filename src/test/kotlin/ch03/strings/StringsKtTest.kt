@@ -8,4 +8,9 @@ internal class StringsKtTest {
     fun lastChar() {
         Assertions.assertThat("Kotlin".lastChar()).isEqualTo('n')
     }
+
+    @Test
+    fun lastCharProperty() {
+        Assertions.assertThat("Kotlin".lastChar).isEqualTo('n')
+    }
 }
