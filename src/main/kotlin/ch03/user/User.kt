@@ -7,16 +7,15 @@ class User(
 )
 
 fun saveUser(user: User) {
-    if (user.name.isEmpty()) {
-        throw IllegalArgumentException(
-            "Can't save user ${user.id}: empty Name"
-        )
-    }
-    if (user.address.isEmpty()) {
-        throw IllegalArgumentException(
-            "Can't save user ${user.id}: empty Address"
-        )
+    fun validate(user: User, value: String, fieldName: String) {
+        if (value.isEmpty()) {
+            throw IllegalArgumentException(
+                "Can't save user ${user.id}: empty $fieldName"
+            )
+        }
     }
 
+    validate(user, user.name, "Name")
+    validate(user, user.address, "Address")
     // save user into database
 }
