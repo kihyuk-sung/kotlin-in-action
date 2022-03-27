@@ -1,16 +1,22 @@
 package ch03.strings
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 internal class StringsKtTest {
     @Test
     fun lastChar() {
-        Assertions.assertThat("Kotlin".lastChar()).isEqualTo('n')
+        assertThat("Kotlin".lastChar()).isEqualTo('n')
     }
 
     @Test
     fun lastCharProperty() {
-        Assertions.assertThat("Kotlin".lastChar).isEqualTo('n')
+        assertThat("Kotlin".lastChar).isEqualTo('n')
+    }
+
+    @Test
+    fun split() {
+        assertThat("1 2 3 4 5".split(" ")).containsExactlyElementsOf(listOf("1", "2", "3", "4", "5"))
+        assertThat("12.345-6.A".split("[.-]".toRegex())).containsExactlyElementsOf(listOf("12", "345", "6", "A"))
     }
 }
