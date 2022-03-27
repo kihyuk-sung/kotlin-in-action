@@ -71,4 +71,12 @@ internal class StringUtilKtTest {
         assertThat(fileName).isEqualTo("chapter")
         assertThat(extension).isEqualTo("adoc")
     }
+
+    @Test
+    fun stringLiteral() {
+        val kotlinLogo = """|  //
+                           .| //
+                           .|/ \"""
+        println(kotlinLogo.trimMargin("."))
+    }
 }
