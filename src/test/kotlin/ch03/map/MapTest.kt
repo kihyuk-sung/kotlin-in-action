@@ -14,4 +14,12 @@ class MapTest {
     fun infix() {
         assertThat(1.to("one")).isEqualTo(1 to "one")
     }
+
+
+    @Test
+    fun deconstruct() {
+        val (number, name) = 1 to "one"
+        assertThat(number).isEqualTo(1)
+        assertThat(name).isEqualTo("one")
+    }
 }
