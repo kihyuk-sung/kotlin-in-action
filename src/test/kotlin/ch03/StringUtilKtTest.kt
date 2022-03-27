@@ -44,4 +44,31 @@ internal class StringUtilKtTest {
     fun importMethod() {
         assertThat("Kotlin".last()).isEqualTo('n')
     }
+
+    @Test
+    fun parsePath() {
+        val path = "/Users/yole/kotlin-book/chapter.adoc"
+        val directory = path.substringBeforeLast("/")
+        val fullName = path.substringAfterLast("/")
+        val fileName = fullName.substringBeforeLast(".")
+        val extension = fullName.substringAfterLast(".")
+
+        assertThat(directory).isEqualTo("/Users/yole/kotlin-book")
+        assertThat(fullName).isEqualTo("chapter.adoc")
+        assertThat(fileName).isEqualTo("chapter")
+        assertThat(extension).isEqualTo("adoc")
+    }
+
+    @Test
+    fun parsePathRegex() {
+        val path = "/Users/yole/kotlin-book/chapter.adoc"
+        val regex = """(.+)/(.+)\.(.+)""".toRegex()
+        val matchResult = regex.matchEntire(path)!!
+
+        val (directory, fileName, extension) = matchResult.destructured
+
+        assertThat(directory).isEqualTo("/Users/yole/kotlin-book")
+        assertThat(fileName).isEqualTo("chapter")
+        assertThat(extension).isEqualTo("adoc")
+    }
 }
